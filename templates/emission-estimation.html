@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}Emission Estimation{% endblock %}
+
+{% block content %}
+<section class="emission-estimation">
+    <h2>Emission Estimation</h2>
+    <p>Input your mine's data to estimate the carbon emissions.</p>
+    <form id="emission-form">
+        <!-- Form fields for data input -->
+        <div class="form-group">
+            <label for="mine-name">Coal Mine Name:</label>
+            <input type="text" id="mine-name" name="mine-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="excavation">Excavation (tons):</label>
+            <input type="number" id="excavation" name="excavation" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="transportation">Transportation (km):</label>
+            <input type="number" id="transportation" name="transportation" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="equipment">Equipment Usage (hours):</label>
+            <input type="number" id="equipment" name="equipment" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Estimate Emissions">
+        </div>
+    </form>
+
+    <!-- Table for displaying input values and results -->
+    <div id="emission-results" class="results">
+        <h3>Emission Estimates</h3>
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>Coal Mine Name</th>
+                    <th>Excavation (tons)</th>
+                    <th>Transportation (km)</th>
+                    <th>Equipment Usage (hours)</th>
+                    <th>Estimated Emissions (tons CO2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Results will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+    document.getElementById('emission-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let mineName = document.getElementById('mine-name').value;
+        let excavation = document.getElementById('excavation').value;
+        let transportation = document.getElementById('transportation').value;
+        let equipment = document.getElementById('equipment').value;
+
+        // Placeholder calculation logic (replace with actual logic)
+        let estimatedEmissions = (excavation * 0.5) + (transportation * 0.3) + (equipment * 0.2);
+
+        // Add results to the table
+        let tableBody = document.querySelector('#results-table tbody');
+        let newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${mineName}</td>
+            <td>${excavation}</td>
+            <td>${transportation}</td>
+            <td>${equipment}</td>
+            <td>${estimatedEmissions.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(newRow);
+    });
+</script>
+
+<style>
+    /* Enhance the styling of the form */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Results section */
+    .results {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+
+    #results-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #results-table th, #results-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    #results-table th {
+        background-color: #f2f2f2;
+    }
+
+    @media (max-width: 600px) {
+        input[type="text"], input[type="number"], input[type="submit"] {
+            width: 100%;
+        }
+    }
+
+    /* Ensure the page is scrollable and footer space */
+    body {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 60px; /* Adjust based on footer height */
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 60px; /* Adjust to match footer height */
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 60px;
+    }
+</style>
+{% endblock %}

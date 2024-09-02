@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Help{% endblock %}
+
+{% block content %}
+<section class="help">
+    <h2>Help & Support</h2>
+    <p>Need assistance? Find answers to common questions or get in touch with support.</p>
+
+    <div class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><a href="#">How to estimate emissions?</a></li>
+            <li><a href="#">How to implement carbon neutrality strategies?</a></li>
+            <li><a href="#">How to visualize data?</a></li>
+            <li><a href="#">How to change settings?</a></li>
+        </ul>
+    </div>
+
+    <div class="contact-support">
+        <h3>Contact Support</h3>
+        <p>If you can't find the answer to your question, feel free to reach out to our support team.</p>
+        <a href="#" class="support-button">Contact Support</a>
+    </div>
+</section>
+
+<style>
+    .help {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .help h2 {
+        margin-bottom: 20px;
+        font-size: 28px;
+        color: #333;
+    }
+
+    .faq, .contact-support {
+        margin-bottom: 30px;
+    }
+
+    .faq h3, .contact-support h3 {
+        margin-bottom: 15px;
+        font-size: 22px;
+        color: #555;
+    }
+
+    .faq ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .faq ul li {
+        margin-bottom: 10px;
+    }
+
+    .faq ul li a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .faq ul li a:hover {
+        color: #0056b3;
+    }
+
+    .contact-support p {
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    .support-button {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .support-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}

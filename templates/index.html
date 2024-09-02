@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>Towards Carbon Neutrality in Indian Coal Mines</h2>
+    <p>Track, Analyze, and Reduce Your Mine's Carbon Footprint</p>
+    <a href="{{ url_for('emission_estimation') }}" class="cta-button">Get Started</a>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>Emission Estimation</h3>
+        <p>Input data on mining activities to estimate associated carbon emissions.</p>
+    </div>
+    <div class="feature">
+        <h3>Carbon Neutrality Pathways</h3>
+        <p>Simulate and assess the impact of various emission reduction strategies.</p>
+    </div>
+    <div class="feature">
+        <h3>Data Visualization</h3>
+        <p>Track emission trends and the effectiveness of strategies using interactive charts.</p>
+    </div>
+    <div class="feature">
+        <h3>Scalability</h3>
+        <p>Accommodate different mine sizes and types for tailored solutions.</p>
+    </div>
+</section>
+
+<style>
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #f4f4f4;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        color: #666;
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 30px;
+        background-color: #28a745;
+        color: #fff;
+        font-size: 1.2em;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .cta-button:hover {
+        background-color: #218838;
+    }
+
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 50px 20px;
+        background-color: #fff;
+    }
+
+    .feature {
+        flex: 1 1 300px;
+        padding: 20px;
+        margin: 10px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .feature h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .feature p {
+        font-size: 1em;
+        color: #000000;
+    }
+
+    @media (max-width: 768px) {
+        .features {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+{% endblock %}

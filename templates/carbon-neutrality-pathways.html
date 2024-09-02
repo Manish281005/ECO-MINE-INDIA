@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block title %}Carbon Neutrality Pathways{% endblock %}
+
+{% block content %}
+<section class="carbon-neutrality-pathways">
+    <h2>Carbon Neutrality Pathways</h2>
+    <p>Explore various strategies to achieve carbon neutrality for your mine.</p>
+    <ul class="pathways-list">
+        <li>
+            <h3>Adopt Electric Vehicles</h3>
+            <p>Switching to electric vehicles reduces emissions from fuel combustion in transportation.</p>
+        </li>
+        <li>
+            <h3>Implement Methane Capture Systems</h3>
+            <p>Capturing methane emissions from mining operations can significantly reduce greenhouse gases.</p>
+        </li>
+        <li>
+            <h3>Transition to Renewable Energy</h3>
+            <p>Utilizing solar, wind, or hydroelectric power can decrease reliance on coal-based electricity.</p>
+        </li>
+        <li>
+            <h3>Afforestation Offsets</h3>
+            <p>Planting trees absorbs carbon dioxide, offsetting emissions from mining activities.</p>
+        </li>
+        <li>
+            <h3>Carbon Credits</h3>
+            <p>Earn carbon credits by reducing emissions, which can be traded in carbon markets.</p>
+        </li>
+    </ul>
+
+    <!-- Form for calculating offset requirements -->
+    <section class="offset-calculation">
+        <h2>Calculate Offset Requirements</h2>
+        <form id="offset-form">
+            <div class="form-group">
+                <label for="emissions">Total Emissions (tons CO2):</label>
+                <input type="number" id="emissions" name="emissions" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="offset-rate">Offset Rate (tons CO2 per tree):</label>
+                <input type="number" id="offset-rate" name="offset-rate" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Calculate Required Trees">
+            </div>
+        </form>
+
+        <div id="offset-results" class="results">
+            <!-- Results will be dynamically inserted here -->
+        </div>
+    </section>
+</section>
+
+<script>
+    document.getElementById('offset-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let emissions = document.getElementById('emissions').value;
+        let offsetRate = document.getElementById('offset-rate').value;
+
+        // Calculate required trees based on emissions and offset rate
+        let requiredTrees = emissions / offsetRate;
+
+        // Display the results
+        document.getElementById('offset-results').innerHTML = `<h3>Required Trees for Offsetting: ${Math.ceil(requiredTrees)} trees</h3>`;
+    });
+</script>
+
+<style>
+    .carbon-neutrality-pathways {
+        margin-top: 20px;
+        padding-bottom: 80px; /* Ensure there's space for the footer */
+    }
+
+    .pathways-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .pathways-list li {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .pathways-list h3 {
+        margin-top: 0;
+        color: #4CAF50;
+    }
+
+    .pathways-list p {
+        margin: 5px 0 0 0;
+    }
+
+    /* Offset calculation section */
+    .offset-calculation {
+        margin-top: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="number"], input[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .results {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .pathways-list li, .form-group {
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+    }
+
+    /* Ensure the page is scrollable and footer space */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 60px; /* Adjust to match footer height */
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 60px;
+    }
+</style>
+{% endblock %}
