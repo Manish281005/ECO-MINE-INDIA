@@ -35,7 +35,16 @@ This web-based application is designed to assist Indian coal mines in their jour
 - **Hosting**: Flask server for backend and static file serving.
 
 ## **Images**
+- **INDEX**:
 ![Project Screenshot](images/index.jpg)
+- **EMISSION CALCULATOR**:
+![Project Screenshot](images/emission.jpg)
+- **DATA CHART 1**:
+![Project Screenshot](images/data.jpg)
+- **DATA CHART 2**:
+![Project Screenshot](images/data1.jpg)
+- **PATHWAYS**:
+![Project Screenshot](images/pathways.jpg)
 
 
 
