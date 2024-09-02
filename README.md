@@ -34,6 +34,18 @@ This web-based application is designed to assist Indian coal mines in their jour
 - **Database**: SQLite (can be scaled to PostgreSQL or MySQL for production).
 - **Hosting**: Flask server for backend and static file serving.
 
+## **Images**
+![Project Screenshot](images/index.jpg)
+
+
+
+
+
+
+
+
+
+
 ## **Installation**
 
 1. **Clone the repository:**
